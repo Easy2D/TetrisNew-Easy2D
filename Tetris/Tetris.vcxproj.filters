@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="resource">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TetrisMain.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Building.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Brick.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Preview.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeDefine.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Building.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Brick.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Preview.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Res\logo.ico">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\BackGround\InfoBoard.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\BackGround\MainBoard.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\Brick\BlueBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\Brick\CyanBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\Brick\GrayBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\Brick\GreenBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\Brick\OrangeBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\Brick\PurpleBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\Brick\RedBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\Brick\YellowBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\Res\BackGround\Preview.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\logo.ico">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\BackGround\BackGround.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\BackGround\GameBoard.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\Brick\BlueBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\Brick\CyanBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\Brick\GrayBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\Brick\GreenBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\Brick\OrangeBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\Brick\PurpleBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\Brick\RedBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+    <Image Include="..\..\Tetris\Res\Brick\YellowBrick.png">
+      <Filter>resource</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Res\BackGround.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Res\BrickBomb.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Res\BrickCrash.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\Res\Fail.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\..\Tetris\Res\BackGround.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\..\Tetris\Res\BrickBomb.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\..\Tetris\Res\BrickCrash.wav">
+      <Filter>resource</Filter>
+    </Media>
+    <Media Include="..\..\Tetris\Res\Fail.wav">
+      <Filter>resource</Filter>
+    </Media>
+  </ItemGroup>
+</Project>
