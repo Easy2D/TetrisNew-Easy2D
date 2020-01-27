@@ -1,7 +1,7 @@
 #ifndef _BOARD_H_
 #define _BOARD_H_
 #include "resource.h"
-#include <easy2d.h>
+#include <easy2d/easy2d.h>
 #include "TypeDefine.h"
 
 #include "Brick.h"

@@ -2,7 +2,7 @@
 #define _BRICK_H_
 
 #include "resource.h"
-#include <easy2d.h>
+#include <easy2d/easy2d.h>
 #include "TypeDefine.h"
 
 using namespace easy2d;

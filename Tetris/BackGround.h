@@ -1,6 +1,6 @@
 #ifndef _BACK_GROUND_H_
 #define _BACK_GROUND_H_
-#include <easy2d.h>
+#include <easy2d/easy2d.h>
 
 #include "resource.h"
 #include "TypeDefine.h"

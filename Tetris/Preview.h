@@ -1,7 +1,7 @@
 #ifndef _PREVIEW_H_
 #define _PREVIEW_H_
 #include "resource.h"
-#include <easy2d.h>
+#include <easy2d/easy2d.h>
 #include "TypeDefine.h"
 #include "Building.h"
 

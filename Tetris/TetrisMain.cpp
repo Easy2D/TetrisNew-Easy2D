@@ -1,4 +1,4 @@
-#include <easy2d.h>
+#include <easy2d/easy2d.h>
 #include "TypeDefine.h"
 #include "MainScene.h"
 #include "resource.h"

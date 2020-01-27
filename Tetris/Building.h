@@ -1,7 +1,7 @@
 #ifndef _BUILDING_H_
 #define _BUILDING_H_
 
-#include <easy2d.h>
+#include <easy2d/easy2d.h>
 #include "resource.h"
 #include "TypeDefine.h"
 #include "Brick.h"
