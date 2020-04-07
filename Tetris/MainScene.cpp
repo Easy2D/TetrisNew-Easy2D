@@ -8,9 +8,9 @@ using namespace std;
 using namespace std::placeholders;
 using namespace easy2d;
 
-MainScene::MainScene() : _spBackGround(nullptr), _spBoard(nullptr),  _spStartText(nullptr), _spPauseText(nullptr), _spFailText(nullptr)
+MainScene::MainScene() : _spBackGround(nullptr), _spBoard(nullptr), _spStartText(nullptr), _spPauseText(nullptr), _spFailText(nullptr)
 {
-    // 添加音效
+	// 添加音效
 	_MusicPlayer.preload(IDR_WAVE1, L"WAVE");  // BackGround
 	_MusicPlayer.preload(IDR_WAVE2, L"WAVE");  // BrickBomb
 	_MusicPlayer.preload(IDR_WAVE3, L"WAVE");  // BrickCrash
@@ -23,15 +23,15 @@ MainScene::~MainScene()
 
 Text* MainScene::GetStartText()
 {
-    return _spStartText;
+	return _spStartText;
 }
 Text* MainScene::GetPauseText()
 {
-    return _spPauseText;
+	return _spPauseText;
 }
 Text* MainScene::GetFailText()
 {
-    return _spFailText;
+	return _spFailText;
 }
 
 void MainScene::PlayMusic(const String& music, int count)
@@ -72,94 +72,94 @@ int MainScene::GetMusicResID(const String& music)
 
 void MainScene::onEnter()
 {
-    _spBackGround = gcnew BackGround();
-    if (_spBackGround != nullptr)
-    {
-        this->addChild(_spBackGround);
-    }
+	_spBackGround = gcnew BackGround();
+	if (_spBackGround != nullptr)
+	{
+		this->addChild(_spBackGround);
+	}
 
-    _spPreviewBackGround = gcnew PreviewBackGround();
-    if (_spPreviewBackGround != nullptr)
-    {
-        this->addChild(_spPreviewBackGround);
-    }
+	_spPreviewBackGround = gcnew PreviewBackGround();
+	if (_spPreviewBackGround != nullptr)
+	{
+		this->addChild(_spPreviewBackGround);
+	}
 
-    _spBoard = gcnew Board(this);
-    if (_spBoard != nullptr)
-    {
-        this->addChild(_spBoard);
-    }
+	_spBoard = gcnew Board(this);
+	if (_spBoard != nullptr)
+	{
+		this->addChild(_spBoard);
+	}
 
-    _spPauseText = gcnew Text(L"暂停中");
-    if (_spPauseText != nullptr)
-    {
-        _spPauseText->setFontSize(36);
-        _spPauseText->setAnchor(0.5, 0.5);
-        _spPauseText->setPos(BOARD_WIDTH * BRICK_WIDTH / 2, BOARD_WIDTH * BRICK_WIDTH / 2);
-        _spPauseText->setVisible(false);
-        _spPauseText->setOrder(1);
-        this->addChild(_spPauseText);
-    }
+	_spPauseText = gcnew Text(L"暂停中");
+	if (_spPauseText != nullptr)
+	{
+		_spPauseText->setFontSize(36);
+		_spPauseText->setAnchor(0.5, 0.5);
+		_spPauseText->setPos(BOARD_WIDTH * BRICK_WIDTH / 2, BOARD_WIDTH * BRICK_WIDTH / 2);
+		_spPauseText->setVisible(false);
+		_spPauseText->setOrder(1);
+		this->addChild(_spPauseText);
+	}
 
-    _spFailText = gcnew Text(L"失败！");
-    if (_spFailText != nullptr)
-    {
-        _spFailText->setFontSize(36);
-        _spFailText->setAnchor(0.5, 0.5);
-        _spFailText->setPos(BOARD_WIDTH * BRICK_WIDTH / 2, BOARD_WIDTH * BRICK_WIDTH / 2);
-        _spFailText->setVisible(false);
-        _spFailText->setOrder(1);
-        this->addChild(_spFailText);
-    }
+	_spFailText = gcnew Text(L"失败！");
+	if (_spFailText != nullptr)
+	{
+		_spFailText->setFontSize(36);
+		_spFailText->setAnchor(0.5, 0.5);
+		_spFailText->setPos(BOARD_WIDTH * BRICK_WIDTH / 2, BOARD_WIDTH * BRICK_WIDTH / 2);
+		_spFailText->setVisible(false);
+		_spFailText->setOrder(1);
+		this->addChild(_spFailText);
+	}
 
 	PlayMusic(L"BackGround", -1);
 
-    // 添加消息监听EventCallback
-    Listener::Callback cbKey = bind(&MainScene::KeyInputHandle, this, _1);
-    addListener(cbKey, L"键盘事件");
+	// 添加消息监听EventCallback
+	Listener::Callback cbKey = bind(&MainScene::KeyInputHandle, this, _1);
+	addListener(cbKey, L"键盘事件");
 }
 
 void MainScene::FailGame()
 {
-    _spFailText->setVisible(true);
+	_spFailText->setVisible(true);
 
-    PauseMusic(L"BackGround");
-    PlayMusic(L"Fail");
+	PauseMusic(L"BackGround");
+	PlayMusic(L"Fail");
 
-    _spBoard->setAutoUpdate(false);
+	_spBoard->setAutoUpdate(false);
 }
 void MainScene::ResetGame()
 {
-    if (_spPauseText->isVisible() == true)
-    {
-        return;
-    }
-    _spFailText->setVisible(false);
-    _spPauseText->setVisible(false);
+	if (_spPauseText->isVisible() == true)
+	{
+		return;
+	}
+	_spFailText->setVisible(false);
+	_spPauseText->setVisible(false);
 
-    ResumeMusic(L"BackGround");
+	ResumeMusic(L"BackGround");
 
-    _spBoard->ResetBoard();
+	_spBoard->ResetBoard();
 }
 
 void MainScene::PauseGame()
 {
-    if (_spFailText->isVisible() == true)
-    {
-        return;
-    }
-    _spFailText->setVisible(false);
-    _spPauseText->setVisible(true);
-    PauseMusic(L"BackGround");
-    _spBoard->setAutoUpdate(false);
+	if (_spFailText->isVisible() == true)
+	{
+		return;
+	}
+	_spFailText->setVisible(false);
+	_spPauseText->setVisible(true);
+	PauseMusic(L"BackGround");
+	_spBoard->setAutoUpdate(false);
 }
 
 void MainScene::ResumeGame()
 {
-    _spPauseText->setVisible(false);
-    _spFailText->setVisible(false);
-    ResumeMusic(L"BackGround");
-    _spBoard->setAutoUpdate(true);
+	_spPauseText->setVisible(false);
+	_spFailText->setVisible(false);
+	ResumeMusic(L"BackGround");
+	_spBoard->setAutoUpdate(true);
 }
 
 void MainScene::KeyInputHandle(Event* evt)
@@ -167,35 +167,35 @@ void MainScene::KeyInputHandle(Event* evt)
 	if (evt->type != Event::Type::KeyDown)
 		return;
 
-    switch (((KeyDownEvent*)evt)->key)
-    {
-    case KeyCode::P:
-        PauseGame();
-        break;
-    case KeyCode::S:
-        ResumeGame();
-        break;
-    case KeyCode::R:
-        ResetGame();
-        break;
-    case KeyCode::Up:
-        _spBoard->MoveBuilding(Direction_t::UP);
-        break;
-    case KeyCode::Down:
-        _spBoard->MoveBuilding(Direction_t::DOWN);
-        break;
-    case KeyCode::Left:
-        _spBoard->MoveBuilding(Direction_t::LEFT);
-        break;
-    case KeyCode::Right:
-        _spBoard->MoveBuilding(Direction_t::RIGHT);
-        break;
-    case KeyCode::Space:
-        _spBoard->MoveBuilding(Direction_t::DROP);
-        break;
-    default:
-        break;
-    }
+	switch (((KeyDownEvent*)evt)->key)
+	{
+	case KeyCode::P:
+		PauseGame();
+		break;
+	case KeyCode::S:
+		ResumeGame();
+		break;
+	case KeyCode::R:
+		ResetGame();
+		break;
+	case KeyCode::Up:
+		_spBoard->MoveBuilding(Direction_t::UP);
+		break;
+	case KeyCode::Down:
+		_spBoard->MoveBuilding(Direction_t::DOWN);
+		break;
+	case KeyCode::Left:
+		_spBoard->MoveBuilding(Direction_t::LEFT);
+		break;
+	case KeyCode::Right:
+		_spBoard->MoveBuilding(Direction_t::RIGHT);
+		break;
+	case KeyCode::Space:
+		_spBoard->MoveBuilding(Direction_t::DROP);
+		break;
+	default:
+		break;
+	}
 }
 
 void MainScene::onUpdate()

@@ -18,31 +18,31 @@ static int brickName[] = {
 
 Brick::Brick(Color_t color, Pos_t pos, float size, Pos_t parentAbsPos) : _parentAbsPos(parentAbsPos)
 {
-    E2D_LOG(L"Brick created");
+	E2D_LOG(L"Brick created");
 
-    this->open(brickName[(int)color], L"PNG");
-    this->setAnchor(0, 0);
-    this->setWidth(size);
-    this->setHeight(size);
-    _color = color;
-    _pos = pos;
-    this->setPos((float)(parentAbsPos.X + size * pos.X), (float)(parentAbsPos.Y + size * pos.Y));
+	this->open(brickName[(int)color], L"PNG");
+	this->setAnchor(0, 0);
+	this->setWidth(size);
+	this->setHeight(size);
+	_color = color;
+	_pos = pos;
+	this->setPos((float)(parentAbsPos.X + size * pos.X), (float)(parentAbsPos.Y + size * pos.Y));
 }
 
 Brick::~Brick()
 {
-    E2D_LOG(L"Brick destroyed");
+	E2D_LOG(L"Brick destroyed");
 }
 
 void Brick::SetPos(Pos_t pos)
 {
-    _pos = pos;
-    this->setPos((float)(_parentAbsPos.X + BRICK_WIDTH * pos.X), (float)(_parentAbsPos.Y + BRICK_WIDTH * pos.Y));
+	_pos = pos;
+	this->setPos((float)(_parentAbsPos.X + BRICK_WIDTH * pos.X), (float)(_parentAbsPos.Y + BRICK_WIDTH * pos.Y));
 
 }
 
 Pos_t Brick::GetPos()
 {
-    return _pos;
+	return _pos;
 }
 
