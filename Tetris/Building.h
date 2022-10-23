@@ -31,8 +31,8 @@ private:
     Board* _pBoard;
     Brick* _brick[N_BRICK];
     bool _movable;
-    int _frameNum;
-    float _dropSpeed;
+    float _deltaTime;
+    float _moveInterval;
 };
 
 #endif

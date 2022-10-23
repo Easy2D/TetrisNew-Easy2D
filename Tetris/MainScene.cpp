@@ -11,10 +11,10 @@ using namespace easy2d;
 MainScene::MainScene() : _spBackGround(nullptr), _spBoard(nullptr), _spStartText(nullptr), _spPauseText(nullptr), _spFailText(nullptr)
 {
 	// Ìí¼ÓÒôÐ§
-	_MusicPlayer.preload(IDR_WAVE1, L"WAVE");  // BackGround
-	_MusicPlayer.preload(IDR_WAVE2, L"WAVE");  // BrickBomb
-	_MusicPlayer.preload(IDR_WAVE3, L"WAVE");  // BrickCrash
-	_MusicPlayer.preload(IDR_WAVE4, L"WAVE");  // Fail
+	_MusicPlayer.preload(IDR_WAVE1, "WAVE");  // BackGround
+	_MusicPlayer.preload(IDR_WAVE2, "WAVE");  // BrickBomb
+	_MusicPlayer.preload(IDR_WAVE3, "WAVE");  // BrickCrash
+	_MusicPlayer.preload(IDR_WAVE4, "WAVE");  // Fail
 }
 
 MainScene::~MainScene()
@@ -36,34 +36,34 @@ Text* MainScene::GetFailText()
 
 void MainScene::PlayMusic(const String& music, int count)
 {
-	_MusicPlayer.play(GetMusicResID(music), L"WAVE", count);
+	_MusicPlayer.play(GetMusicResID(music), "WAVE", count);
 }
 
 void MainScene::PauseMusic(const String& music)
 {
-	_MusicPlayer.pause(GetMusicResID(music), L"WAVE");
+	_MusicPlayer.pause(GetMusicResID(music), "WAVE");
 }
 
 void MainScene::ResumeMusic(const String& music)
 {
-	_MusicPlayer.resume(GetMusicResID(music), L"WAVE");
+	_MusicPlayer.resume(GetMusicResID(music), "WAVE");
 }
 
 int MainScene::GetMusicResID(const String& music)
 {
-	if (music == L"BackGround")
+	if (music == "BackGround")
 	{
 		return (IDR_WAVE1);
 	}
-	else if (music == L"BrickBomb")
+	else if (music == "BrickBomb")
 	{
 		return (IDR_WAVE2);
 	}
-	else if (music == L"BrickCrash")
+	else if (music == "BrickCrash")
 	{
 		return (IDR_WAVE3);
 	}
-	else if (music == L"Fail")
+	else if (music == "Fail")
 	{
 		return (IDR_WAVE4);
 	}
@@ -90,7 +90,7 @@ void MainScene::onEnter()
 		this->addChild(_spBoard);
 	}
 
-	_spPauseText = gcnew Text(L"ÔÝÍ£ÖÐ");
+	_spPauseText = gcnew Text("ÔÝÍ£ÖÐ");
 	if (_spPauseText != nullptr)
 	{
 		_spPauseText->setFontSize(36);
@@ -101,7 +101,7 @@ void MainScene::onEnter()
 		this->addChild(_spPauseText);
 	}
 
-	_spFailText = gcnew Text(L"Ê§°Ü£¡");
+	_spFailText = gcnew Text("Ê§°Ü£¡");
 	if (_spFailText != nullptr)
 	{
 		_spFailText->setFontSize(36);
@@ -112,19 +112,19 @@ void MainScene::onEnter()
 		this->addChild(_spFailText);
 	}
 
-	PlayMusic(L"BackGround", -1);
+	PlayMusic("BackGround", -1);
 
 	// Ìí¼ÓÏûÏ¢¼àÌýEventCallback
 	Listener::Callback cbKey = bind(&MainScene::KeyInputHandle, this, _1);
-	addListener(cbKey, L"¼üÅÌÊÂ¼þ");
+	addListener(cbKey, "¼üÅÌÊÂ¼þ");
 }
 
 void MainScene::FailGame()
 {
 	_spFailText->setVisible(true);
 
-	PauseMusic(L"BackGround");
-	PlayMusic(L"Fail");
+	PauseMusic("BackGround");
+	PlayMusic("Fail");
 
 	_spBoard->setAutoUpdate(false);
 }
@@ -137,7 +137,7 @@ void MainScene::ResetGame()
 	_spFailText->setVisible(false);
 	_spPauseText->setVisible(false);
 
-	ResumeMusic(L"BackGround");
+	ResumeMusic("BackGround");
 
 	_spBoard->ResetBoard();
 }
@@ -150,7 +150,7 @@ void MainScene::PauseGame()
 	}
 	_spFailText->setVisible(false);
 	_spPauseText->setVisible(true);
-	PauseMusic(L"BackGround");
+	PauseMusic("BackGround");
 	_spBoard->setAutoUpdate(false);
 }
 
@@ -158,7 +158,7 @@ void MainScene::ResumeGame()
 {
 	_spPauseText->setVisible(false);
 	_spFailText->setVisible(false);
-	ResumeMusic(L"BackGround");
+	ResumeMusic("BackGround");
 	_spBoard->setAutoUpdate(true);
 }
 

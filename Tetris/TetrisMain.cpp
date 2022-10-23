@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 // 程序名称：TetrisNew
 // 作者：大猫
-// 编译环境：Visual Studio 2019 / Easy2D v2.0.4
+// 编译环境：Visual Studio 2019 / Easy2D v2.1.12
 // 项目类型：Win32 Application
 //---------------------------------------------------------
 
@@ -14,7 +14,7 @@ using namespace easy2d;
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
-	if (Game::init(L"Tetris", WINDOW_WIDTH * BRICK_WIDTH, WINDOW_HEIGHT * BRICK_WIDTH))
+	if (Game::init("Tetris", WINDOW_WIDTH * BRICK_WIDTH, WINDOW_HEIGHT * BRICK_WIDTH))
 	{
 		// 设置窗口图标
 		Window::setIcon(IDI_ICON1);

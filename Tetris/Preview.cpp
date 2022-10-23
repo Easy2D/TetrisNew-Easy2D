@@ -40,12 +40,12 @@ Preview::Preview(Color_t color, Shape_t shape, int rollNum, Pos_t parentAbsPos)
 	{
 		this->Roll();
 	}
-	E2D_LOG(L"Preview Created with color:%d, shape:%d, direction:%d", _color, _shape, rollNum);
+	E2D_LOG("Preview Created with color:%d, shape:%d, direction:%d", _color, _shape, rollNum);
 }
 
 Preview::~Preview()
 {
-	E2D_LOG(L"Preview Destroyed with color:%d, shape:%d", _color, _shape);
+	E2D_LOG("Preview Destroyed with color:%d, shape:%d", _color, _shape);
 }
 
 Color_t Preview::GetPreviewColor()

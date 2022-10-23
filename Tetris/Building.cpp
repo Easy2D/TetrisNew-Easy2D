@@ -24,7 +24,7 @@ static Pos_t RotatePos(const Pos_t& pos)
 }
 
 Building::Building(Color_t color, Shape_t shape, int rollNum, Pos_t centerPos, Board* pBoard, float dropSpeed)
-	: _color(color), _shape(shape), _centerPos(centerPos), _pBoard(pBoard), _movable(true), _frameNum(0), _dropSpeed(dropSpeed)
+	: _color(color), _shape(shape), _centerPos(centerPos), _pBoard(pBoard), _movable(true), _deltaTime(0), _moveInterval(1.f / dropSpeed)
 {
 	for (int i = 0; i < N_BRICK; i++)
 	{
@@ -39,12 +39,12 @@ Building::Building(Color_t color, Shape_t shape, int rollNum, Pos_t centerPos, B
 	{
 		this->Roll();
 	}
-	E2D_LOG(L"Building Created with color:%d, shape:%d, direction:%d", _color, _shape, rollNum);
+	E2D_LOG("Building Created with color:%d, shape:%d, direction:%d", _color, _shape, rollNum);
 }
 
 Building::~Building()
 {
-	E2D_LOG(L"Building Destroyed with color:%d, shape:%d", _color, _shape);
+	E2D_LOG("Building Destroyed with color:%d, shape:%d", _color, _shape);
 }
 
 bool Building::Roll()
@@ -207,17 +207,12 @@ void Building::onUpdate()
 		return;
 	}
 
-	int frameInterval = (int)(60.0 / _dropSpeed) + 1;
-
-	_frameNum++;
-	if (_frameNum >= frameInterval * 100)
-	{
-		_frameNum = 0;
-	}
-	if (_frameNum % frameInterval != 0)
+	_deltaTime += Time::getDeltaTime();
+	if (_deltaTime < _moveInterval)
 	{
 		return;
 	}
+	_deltaTime -= _moveInterval;
 
 	if (!TryMove(Direction_t::DOWN))
 	{
